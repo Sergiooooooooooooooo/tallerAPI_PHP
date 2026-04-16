@@ -14,6 +14,12 @@ class Car extends Model
         'car_model',
         'car_year',
         'car_price',
-        'car_status'
+        'car_status',
+        'category_id',
+        'barcode',
     ];
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

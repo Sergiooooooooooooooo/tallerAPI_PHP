@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Car;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,7 +23,9 @@ class CarFactory extends Factory
             "car_model" => ucfirst($this->faker->word()),
             "car_year" => $this->faker->numberBetween(2000, (int) date("Y")),
             "car_price" => $this->faker->randomFloat(2, 1500, 80000),
-            "car_status" => $this->faker->boolean(80)
+            "car_status" => $this->faker->boolean(80),
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'barcode' => fake()->unique()->numerify('##########')
         ];
     }
 }
